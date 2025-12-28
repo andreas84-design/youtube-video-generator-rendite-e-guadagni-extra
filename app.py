@@ -77,99 +77,95 @@ def cleanup_old_videos(s3_client, current_key):
 
 
 # -------------------------------------------------
-# Mapping SCENA → QUERY visiva (canale Investimenti e Finanza Facile)
+# Mapping SCENA → QUERY visiva (canale Rendite e Guadagni Extra)
 # -------------------------------------------------
 def pick_visual_query(context: str, keywords_text: str = "") -> str:
     """
-    Query ottimizzate per B‑roll Finanza Personale:
-    grafici, città finanziarie, calcoli, risparmi, famiglia serena, pianificazione.
+    Query ottimizzate per B‑roll Side Hustle / Business Online:
+    laptop freelance, e-commerce, passive income, automazioni, home office, success stories.
     """
     ctx = (context or "").lower()
     kw = (keywords_text or "").lower()
 
-    base = "financial charts data analysis, business growth graphs, investment planning, money savings"
+    base = "laptop home office working, online business entrepreneur, passive income digital nomad, freelance remote work"
 
-    # ETF / Investimenti / Azioni / Obbligazioni
-    if any(w in ctx for w in ["etf", "investiment", "azion", "obbligaz", "portafogli", "diversific"]):
-        return "stock market charts rising, financial graphs business analysis, investment portfolio laptop screen"
+    # Freelancing / Lavoro remoto / Skills
+    if any(w in ctx for w in ["freelanc", "lavoro", "skill", "competen", "consulenz", "serviz"]):
+        return "freelancer working laptop home, person video call client, remote worker home office professional setup"
 
-    # Risparmio / Budget / Soldi
-    if any(w in ctx for w in ["risparmio", "budget", "soldi", "denaro", "euro", "risorse", "finanze"]):
-        return "person saving money piggy bank, budget planning calculator notebook, coins euro bills counting"
+    # E-commerce / Dropshipping / Vendite online
+    if any(w in ctx for w in ["ecommerce", "dropship", "vendita", "negozio", "prodott", "amazon", "etsy"]):
+        return "online shopping cart checkout, product packaging shipping, ecommerce dashboard orders laptop screen"
 
-    # Pensione / Previdenza / Futuro / TFR
-    if any(w in ctx for w in ["pension", "previdenz", "futuro", "tfr", "vecchiaia", "anzian"]):
-        return "elderly couple planning retirement happy, pension savings calculator, senior people relaxed financial freedom"
+    # Affiliate marketing / Blog / Content
+    if any(w in ctx for w in ["affiliate", "blog", "content", "youtube", "social", "monetiz"]):
+        return "person creating content laptop recording, affiliate marketing dashboard earnings, blogger writing article coffee"
 
-    # Broker / Piattaforma / App / Trading
-    if any(w in ctx for w in ["broker", "piattaforma", "app", "trading", "compravendita", "acquist"]):
-        return "person using financial app smartphone, stock trading platform laptop, online banking mobile interface"
+    # Passive income / Rendite / Automazioni
+    if any(w in ctx for w in ["passiv", "rendita", "automat", "sistema", "reddito", "guadagn"]):
+        return "money flowing into laptop screen, automated system working charts, passive income growing graph upward"
 
-    # Fiscalità / Tasse / Dichiarazione / Detrazioni
-    if any(w in ctx for w in ["fiscalit", "tasse", "dichiaraz", "detrazion", "fiscal", "tribut"]):
-        return "tax forms documents calculator, person filling tax declaration paper, accountant reviewing financial documents"
+    # Side hustle / Secondo lavoro / Extra
+    if any(w in ctx for w in ["side", "hustle", "extra", "secondo", "aggiuntiv", "part time"]):
+        return "person working laptop evening after work, side business home desk, hustling late night laptop glow"
 
-    # Conto deposito / Banca / Interessi
-    if any(w in ctx for w in ["conto", "banca", "deposit", "interest", "rendiment", "guadagn"]):
-        return "bank building modern architecture, savings account interest growth chart, person checking bank statement laptop"
+    # Business online / Startup / Impresa digitale
+    if any(w in ctx for w in ["business", "startup", "impres", "aziend", "digital", "online"]):
+        return "startup workspace laptop brainstorming, online business launch celebration, entrepreneur planning strategy whiteboard"
 
-    # Carte credito / Cashback / Pagamenti
-    if any(w in ctx for w in ["carta", "cashback", "pagament", "credit", "bancomat", "pos"]):
-        return "credit card payment contactless, cashback rewards shopping, person using card terminal store"
+    # Corsi / Formazione / Insegnare online
+    if any(w in ctx for w in ["corso", "formaz", "insegn", "educat", "udemy", "skill"]):
+        return "person teaching online course webcam, online learning platform laptop, educational content creation recording"
 
-    # Robo-advisor / Automatico / Tecnologia
-    if any(w in ctx for w in ["robo", "automat", "tecnolog", "digital", "AI", "algoritm"]):
-        return "AI technology financial automation, digital investment platform interface, automated trading algorithms visualization"
+    # Investimento / Capitale / Budget
+    if any(w in ctx for w in ["investiment", "capital", "budget", "soldi", "euro", "costi"]):
+        return "calculator budget planning notebook, euro coins investment growth, person calculating startup costs laptop"
 
-    # Famiglia / Casa / Vita quotidiana
-    if any(w in ctx for w in ["famigli", "casa", "figli", "coppia", "genitori", "quotidian"]):
-        return "happy family home financial planning, couple reviewing budget documents together, parents saving for children future"
+    # Tempo / Orari / Flessibilità / Libertà
+    if any(w in ctx for w in ["tempo", "orari", "flessibi", "libertà", "indipend", "autonomi"]):
+        return "digital nomad working beach laptop, flexible schedule calendar freedom, person relaxed working from anywhere"
 
-    # Crescita / Rendimento / Performance / Guadagno
-    if any(w in ctx for w in ["crescita", "rendiment", "performance", "guadagn", "profit", "ritorni"]):
-        return "rising financial graph success, business growth chart upward trend, profit increase stock market screen"
+    # Successo / Crescita / Scalare
+    if any(w in ctx for w in ["success", "crescita", "scalare", "espand", "aumentare", "profit"]):
+        return "business growth chart rising success, entrepreneur celebrating achievement, scaling online business dashboard analytics"
 
-    # Errori / Rischi / Perdite / Attenzione
-    if any(w in ctx for w in ["error", "rischi", "perdita", "attenzione", "pericol", "evitar"]):
-        return "warning sign financial risk, stock market crash red charts, person worried looking at declining graph"
+    # Errori / Evitare / Attenzione / Problemi
+    if any(w in ctx for w in ["error", "evitar", "attenzion", "problem", "falliment", "rischi"]):
+        return "warning sign business mistake, person stressed overwhelmed laptop, avoid failure red flags caution"
 
-    # Strategia / Piano / Obiettivi
-    if any(w in ctx for w in ["strategi", "piano", "obiettiv", "meta", "pianific", "progett"]):
-        return "business strategy planning board, financial goals checklist, person writing investment plan notebook"
+    # Strategie / Metodo / Piano / Guida
+    if any(w in ctx for w in ["strategi", "metodo", "piano", "guida", "passo", "sistema"]):
+        return "business strategy roadmap planning, step by step guide checklist, strategic plan notebook laptop coffee"
 
-    # Giovani / Millennials / Principianti / Iniziare
-    if any(w in ctx for w in ["giovan", "millennial", "principiant", "iniziar", "cominciar", "primo"]):
-        return "young person learning investment smartphone, millennial planning finances laptop cafe, beginner reading financial book"
+    # Strumenti / Tools / Software / App
+    if any(w in ctx for w in ["strument", "tool", "software", "app", "piattaforma", "servizio"]):
+        return "digital tools interface laptop screen, software automation dashboard, online business tools apps icons"
 
-    # Libertà finanziaria / Indipendenza / Passive income
-    if any(w in ctx for w in ["libertà", "indipendenz", "passive", "rendita", "autonomi"]):
-        return "person relaxing financial freedom beach, passive income laptop remote work, independent financially free lifestyle"
+    # Fiscalità / Partita IVA / Tasse
+    if any(w in ctx for w in ["fiscal", "partita iva", "tasse", "dichiaraz", "contabil", "commercialist"]):
+        return "tax forms freelance VAT number, accountant reviewing business documents, fiscal declaration online platform"
 
-    # Inflazione / Economia / Mercato
-    if any(w in ctx for w in ["inflazion", "economi", "mercato", "crisi", "prezzi"]):
-        return "inflation economic charts rising prices, market economy news financial data, cost of living increase graph"
-
-    # Educazione / Imparare / Conoscenza
-    if any(w in ctx for w in ["educazion", "impara", "conoscenz", "studia", "formazio"]):
-        return "person studying financial education books, learning investment online course, financial literacy training"
+    # Principianti / Iniziare / Primo passo
+    if any(w in ctx for w in ["principiant", "iniziar", "primo", "cominciar", "zero", "beginner"]):
+        return "beginner starting online business laptop, first step startup launch excited, novice learning business basics tutorial"
 
     # Se abbiamo keywords specifiche dallo Sheet
     if kw and kw != "none":
-        return f"{kw}, financial planning, investment charts, business growth, money management"
+        return f"{kw}, online business freelance, side hustle passive income, digital entrepreneur working laptop"
 
-    # Fallback Finanza generico
+    # Fallback Side Hustle generico
     return base
 
 
 def fetch_clip_for_scene(scene_number: int, query: str, avg_scene_duration: float):
     """
-    🎯 Canale Finanza: B‑roll professionale, pulito, positivo.
-    Priorità: grafici, persone che pianificano, città business, calcoli.
+    🎯 Canale Side Hustle: B‑roll business online, freelance, e-commerce, lifestyle digitale.
+    Priorità: laptop home office, persone che lavorano, dashboard analytics, success vibes.
     Filtro anti‑content inappropriato (animali, sport, cucina, fitness, party).
     """
     target_duration = min(4.0, avg_scene_duration)
 
-    def is_finance_video_metadata(video_data, source):
+    def is_business_video_metadata(video_data, source):
         banned = [
             "dog", "cat", "animal", "wildlife", "bird", "fish", "horse",
             "fitness", "yoga", "workout", "gym", "exercise",
@@ -179,11 +175,12 @@ def fetch_clip_for_scene(scene_number: int, query: str, avg_scene_duration: floa
             "gaming", "videogame", "esports"
         ]
         
-        # Keywords finanza che vogliamo
-        finance_keywords = [
-            "business", "finance", "money", "investment", "stock", "chart",
-            "graph", "data", "analysis", "banking", "savings", "planning",
-            "budget", "calculator", "laptop", "office", "city", "growth"
+        # Keywords business online che vogliamo
+        business_keywords = [
+            "laptop", "work", "office", "business", "entrepreneur", "freelance",
+            "online", "digital", "remote", "home office", "computer", "desk",
+            "typing", "working", "professional", "startup", "ecommerce",
+            "money", "success", "growth", "chart", "analytics"
         ]
         
         if source == "pexels":
@@ -193,12 +190,12 @@ def fetch_clip_for_scene(scene_number: int, query: str, avg_scene_duration: floa
             text = " ".join(video_data.get("tags", [])).lower()
 
         has_banned = any(kw in text for kw in banned)
-        has_finance = any(kw in text for kw in finance_keywords)
+        has_business = any(kw in text for kw in business_keywords)
         
-        status = "✅ FINANCE OK" if (not has_banned and has_finance) else ("❌ OFF‑TOPIC" if has_banned else "⚠️ NEUTRAL")
+        status = "✅ BUSINESS OK" if (not has_banned and has_business) else ("❌ OFF‑TOPIC" if has_banned else "⚠️ NEUTRAL")
         print(f"🔍 [{source}] '{text[:60]}...' → {status}", flush=True)
         
-        # Accetta se: (1) ha keywords finanza E non banned, OPPURE (2) non ha banned (neutrale OK)
+        # Accetta se: (1) ha keywords business E non banned, OPPURE (2) non ha banned (neutrale OK)
         return not has_banned
 
     def download_file(url: str) -> str:
@@ -211,13 +208,13 @@ def fetch_clip_for_scene(scene_number: int, query: str, avg_scene_duration: floa
         tmp_clip.close()
         return tmp_clip.name
 
-    # --- PEXELS: query finanza ---
+    # --- PEXELS: query business online ---
     def try_pexels():
         if not PEXELS_API_KEY:
             return None
         headers = {"Authorization": PEXELS_API_KEY}
         params = {
-            "query": f"{query} business finance charts investment planning",
+            "query": f"{query} laptop work online business freelance entrepreneur",
             "orientation": "landscape",
             "per_page": 25,
             "page": random.randint(1, 3),
@@ -232,23 +229,23 @@ def fetch_clip_for_scene(scene_number: int, query: str, avg_scene_duration: floa
             return None
 
         videos = resp.json().get("videos", [])
-        finance_videos = [v for v in videos if is_finance_video_metadata(v, "pexels")]
+        business_videos = [v for v in videos if is_business_video_metadata(v, "pexels")]
 
-        print(f"🎯 Pexels: {len(videos)} totali → {len(finance_videos)} FINANCE OK", flush=True)
-        if finance_videos:
-            video = random.choice(finance_videos)
+        print(f"🎯 Pexels: {len(videos)} totali → {len(business_videos)} BUSINESS OK", flush=True)
+        if business_videos:
+            video = random.choice(business_videos)
             for vf in video.get("video_files", []):
                 if vf.get("width", 0) >= 1280:
                     return download_file(vf["link"])
         return None
 
-    # --- PIXABAY: query finanza ---
+    # --- PIXABAY: query business online ---
     def try_pixabay():
         if not PIXABAY_API_KEY:
             return None
         params = {
             "key": PIXABAY_API_KEY,
-            "q": f"{query} business finance charts investment planning",
+            "q": f"{query} laptop work online business freelance entrepreneur",
             "per_page": 25,
             "safesearch": "true",
             "min_width": 1280,
@@ -259,7 +256,7 @@ def fetch_clip_for_scene(scene_number: int, query: str, avg_scene_duration: floa
 
         hits = resp.json().get("hits", [])
         for hit in hits:
-            if is_finance_video_metadata(hit, "pixabay"):
+            if is_business_video_metadata(hit, "pixabay"):
                 videos = hit.get("videos", {})
                 for quality in ["large", "medium", "small"]:
                     if quality in videos and "url" in videos[quality]:
@@ -340,7 +337,7 @@ def generate():
 
         print("=" * 80, flush=True)
         print(
-            f"🎬 START FINANZA: {len(script)} char script, keywords: '{sheet_keywords}'",
+            f"🎬 START SIDE HUSTLE: {len(script)} char script, keywords: '{sheet_keywords}'",
             flush=True,
         )
 
@@ -419,7 +416,7 @@ def generate():
             scene_context = (
                 " ".join(script_words[word_index: word_index + 7])
                 if word_index < len(script_words)
-                else "financial charts investment planning business growth"
+                else "laptop home office working online business freelance"
             )
             scene_query = pick_visual_query(scene_context, sheet_keywords)
             scene_assignments.append(
@@ -636,7 +633,7 @@ def generate():
                 pass
 
         print(
-            f"✅ VIDEO FINANZA COMPLETO: {real_duration/60:.1f}min → {public_url}",
+            f"✅ VIDEO SIDE HUSTLE COMPLETO: {real_duration/60:.1f}min → {public_url}",
             flush=True,
         )
 
