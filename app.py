@@ -130,7 +130,7 @@ def notify_n8n_flusso2(job):
         print(f"⚠️ Errore invio webhook n8n flusso2: {e}", flush=True)
 
 # -------------------------------------------------
-# Mapping SCENA → QUERY visiva (canale RENDITE E GUADAGNI EXTRA)
+# Mapping SCENA → QUERY visiva (canale 5 RENDITE E GUADAGNI EXTRA)
 # -------------------------------------------------
 def pick_visual_query(context: str, keywords_text: str = "") -> str:
     """Query ottimizzate per B-roll MONEY/BUSINESS: passive income, entrepreneur, freelance, side hustle, money, online work."""
